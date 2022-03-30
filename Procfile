@@ -1,2 +1,1 @@
-web: gunicorn calculator.wsgi:application --log-file - --log-level debug
-python manage.py collectstatic --noinput
+web: gunicorn myproject.wsgi
