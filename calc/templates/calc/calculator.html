@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% block title %} Calculator {% endblock title %}
+{% block content %}
+<h1>Calculator App </h1>
+<form action="{% url 'index'%}" method="post" class="w-50">
+    {% csrf_token %}
+    {% for field in form %}
+        <div>
+            <p>{{ field.label_tag }} {{ field }}</p>
+
+            {% if field.errors %}
+                <div class="text-danger">
+                    {% for error in field.errors %}
+                        <p>{{error|escape}}</p>
+                    {% endfor %}
+                </div>
+            {%endif%}
+            
+        </div>
+    {% endfor %}
+    <input class="btn btn-primary btn-lg btn-block" type="submit" value="Submit">
+</form>
+{% endblock content %}
+
+{% block script %}
+
+<script>
+    $(function(){
+        $(".text-danger").parent("div").find("input").addClass("is-invalid")
+        $(".text-danger").parent("div").find("select").addClass("is-invalid")
+    })
+
+</script>
+
+{% endblock script %}

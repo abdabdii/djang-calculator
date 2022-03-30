@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+{% block title %} Result {% endblock title %}
+{% block content %}
+<div class="d-flex flex-column align-items-center">
+    <h4>The result of <kbd>{{obj.number1}} {{obj.operation.symbol}} {{obj.number2}}</kbd></h4>
+    <h2><kbd class="text-wrap">= {{obj.result}}</kbd></h2>
+    <a class="btn btn-primary m-4 w-100 text-center" style="max-width:400px" href="{% url 'index'%}" 
+    role="button">
+    <span class="text-white">&lt;</span> 
+    Back to calculator
+</a>
+</div>
+{% endblock content %}
