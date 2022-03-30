@@ -1,2 +1,2 @@
-web: gunicorn django_project.wsgi:application --log-file - --log-level debug
+web: gunicorn calculator.wsgi:application --log-file - --log-level debug
 python manage.py collectstatic --noinput
